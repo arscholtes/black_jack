@@ -1,0 +1,21 @@
+This is the week one project for our ruby specialization.
+I will be putting notes on what I am thinking or find when I google stuff.
+I will still be commenting out stuff in the actual code this is just kinda for my sanity.
+- In deck, make sure that all cards are unique with face and suit
+
+ranks = %w{A 2 3 4 5 6 7 8 9 10 J Q K}
+suits = %w{Spades Hearts Diamonds Clubs}
+suits.each do |suit|
+  ranks.size.times do |i|
+    stack_of_cards << Card.new( ranks[i], suit, i+1 )
+  end
+end
+
+-------->>>>>>>>Game<<<<<<<<<___________
+
+- Initial deal.
+  > Player will get 2 cards at the start of the game
+    \ If the total of those cards = 21 the player wins
+    / If the total does not = 21 then the player is given the option to hit or stay.
+  > The player will see both of their cards as well as one of the dealers cards and will continue until they get 21 bust or stay
+  
