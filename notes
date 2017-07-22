@@ -18,4 +18,15 @@ end
     \ If the total of those cards = 21 the player wins
     / If the total does not = 21 then the player is given the option to hit or stay.
   > The player will see both of their cards as well as one of the dealers cards and will continue until they get 21 bust or stay
-  
+
+
+- card printout ideas? # Hard-mode 
+ _______________
+ |             |
+ |             |
+ |             |
+ |             |
+ |             |
+ |_____________|
+
+ gets.chomp.downcase # this is how we will grab input from our players
