@@ -16,7 +16,7 @@ class Games
     @player_value = 0
   end
 
-  def play_game
+  def play_game # Mail loop for our game, all of our methods are going to be called here.
 
     puts "want to play 21? ( y or n )"
     if gets.chomp.downcase == "y"
@@ -25,22 +25,22 @@ class Games
       calculate
       render_hand
       game_loop
-    else
+    else  # defines what happens if someone doesnt want to play
       puts "Come back again"
     end
   end
 
-  def calculate
+  def calculate # Keeping track of player and dealer score
     @player_sum = 0
     @dealer_sum = 0
     @player_hand.each{|card| @player_sum += card.value}
     @dealer_hand.each{|card| @dealer_sum += card.value}
   end
 
-  def game_loop
+  def game_loop # after the inital deal, this will loop through until the end of the game
     hit?
     calculate
-    if @player_sum >= 21 or @dealer_sum >= 21
+    if @player_sum >= 21 or @dealer_sum >= 21 # This is broken <--------
       end_game
     else
       game_loop
@@ -54,7 +54,7 @@ class Games
   end
 
   def hit?
-    puts "do you want to hit? ( y or n )"
+    puts "do you want to hit? ( y or n )" # getting a responce about if someone wants to get another card or not
     if gets.chomp.downcase == "y"
       @player_hand << @deck.draw
       render_hand
@@ -63,7 +63,7 @@ class Games
     end
   end
 
-  def end_game
+  def end_game # dealing with the end of the game
     while @dealer_sum < 17
       card = @deck.draw
       @dealer_hand << card
